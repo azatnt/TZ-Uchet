@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+<form method="POST" style="margin: 0 auto" class="post-form" action="{% url 'update_task_url' id=task.id %}">
+      {% csrf_token %}
+  <div class="container">
+<br>
+  <div class="form-group row">
+  <label class="col-sm-1 col-form-label"></label>
+  <div class="col-sm-4">
+  <h3>Update Task</h3>
+  </div>
+</div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label">Title:</label>
+  <div class="col-sm-4">
+      <input type="text" name="title" id="id_eid" value="{{ task.title }}"/>
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Description:</label>
+  <div class="col-sm-4">
+      <input style="height:100px;" type="text" name="description" id="id_ename" value="{{ task.description }}" />
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Is done:</label>
+  <div class="col-sm-4">
+      <input style="height:100px;" type="text" name="isDone" id="id_ename" value="{{ task.isDone }}" />
+  </div>
+</div>
+
+  <div class="form-group row">
+  <label class="col-sm-1 col-form-label"></label>
+  <div class="col-sm-4">
+  <button type="submit" class="btn btn-success">Update</button>
+  </div>
+</div>
+  </div>
+</form>
+
+{% endblock %}
